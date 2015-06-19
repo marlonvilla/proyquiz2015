@@ -12,4 +12,7 @@ exports.answer = function(req,res){
 }
 };
 
-
+// GET /author
+exports.author = function(req,res){
+	res.render("quizes/author",{nombre: "Marlon José Villamizar", profesion: "Técnico Superior en Informática"});
+};
