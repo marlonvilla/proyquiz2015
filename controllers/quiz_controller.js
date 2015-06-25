@@ -44,6 +44,24 @@ exports.answer = function(req,res){
 };
 
 
+// GET /quizes/new
+exports.new = function(req,res){
+	var quiz = models.Quiz.build(    // Crea objeto quiz
+		{pregunta: "Pregunta", respuesta:"Respuesta"}
+	);
+	res.render('quizes/new', {quiz:quiz});
+}
+
+// POST /quizes/create
+exports.create = function(req,res){
+	var quiz = models.Quiz.build(req.body.quiz);
+
+// guarda en DB los campos pregunta y respuesta de quiz
+	quiz.save({fields: ["pregunta", "respuesta"]}).then(function(){
+		res.redirect('/quizes');
+	})
+};
+
 // GET /author
 exports.author = function(req,res){
 	res.render("quizes/author",{nombre: "Marlon José Villamizar", profesion: "Técnico Superior en Informática"});
