@@ -2,5 +2,14 @@
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" /> <p>
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" /> <p>
+<input type="text" id="temai" name="quiz[tema]" value="<%= quiz.tema %>" onfocus="this.blur()" /> 
+<select name="tema" id="temas" onchange="javascript:document.getElementById('temai').value = document.getElementById('temas').value;">
+	<option value="otro" selected>Otro</option>
+	<option value="humanidades" >Humanidades</option>
+	<option value="ocio" >Ocio</option>
+	<option value="ciencias" >Ciencias</option>
+	<option value="tecnologías" >Tecnología</option>
+</select>
+<p>
 <a href="/quizes"><buttom type="buttom">Cancelar</buttom></a>
 <input type="submit" value="Salvar">
