@@ -2,6 +2,7 @@
 <% var i; for (i=0; i < quizes.length; i++) { %>
 	<tr>
 		<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+		<% if (session.user) {%>
 		<td><a href="quizes/<%= quizes[i].id %>/edit"><button>Editar</button></a></td>
 		<td>
 			<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
@@ -10,6 +11,7 @@
 				</button>
 			</form>
 		</td>
+		<%}%>
 	</tr>
 <% } %>
 </table>
@@ -17,4 +19,6 @@
 	Buscar una pregunta:<input type="tetx" name="search" value="Escriba aquí...">
 				<input type="submit" value="Enviar">
 </form></br></br>
+<% if (session.user) {%>
 <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+<%}%>
