@@ -11,7 +11,6 @@
 			type="text/css"
 			media="only screen and (max-width: 480px)"
  			href="/stylesheets/smartphone.css"  />
-
 	<link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
 </head>
 <body>
@@ -31,7 +30,7 @@
 	</nav>
 	<section class="main" id="s1" >
 		<% if ( errors.length ) { %>
-		<span id="ErrorMsgs">
+		<span id="ErrorMsgs" class="errores">
 			Corregir errores:<br/>
 			<% for (var i in errors) { %>
 				<span> <%= errors[i].message %> </span><br/>
