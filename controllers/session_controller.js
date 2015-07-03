@@ -29,10 +29,9 @@ exports.create = function(req	,res) {
 
 		// Crear req.session.user y guardar campos id y username
 		// La sessión se define por la existencia de:   req.session.user
-		req.session.user = {id:user.id, username:user.username};
-		console.log("Mi Redireccion es: "+req.session.redir.toString());
+		req.session.user = {id:user.id, username:user.username,  lastRequestTime: Date.now()};
 		res.redirect(req.session.redir.toString());  // redirección a path anterior a login
-		console.log("Despues de la redirección");
+
 });
 };
 // DELETE /logout   -- Destruir sesión
